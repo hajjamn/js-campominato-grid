@@ -1,12 +1,54 @@
+//Dichiaro il contenitore dove andro' a mettere le celle
 const containerElement = document.querySelector('.game-container');
-let squareSideLenght = 10;
 
-for (let i = 0; i < Math.pow(squareSideLenght, 2); i++) {
-  const num = i + 1;
+//Dichiaro la variabile che determina la lunghezza del lato della griglia
+let squareSideLength;
 
-  const cellElement = document.createElement('div');
-  cellElement.classList.add('cell')
-  cellElement.innerHTML = num
+//Dichiaro l'elemento del selezionatore di difficolta'
+const difficultySelectorElement = document.getElementById('difficulty');
 
-  containerElement.append(cellElement)
-}
+//faccio si' che la lunghezza della griglia sia uguale a quella assegnata alla difficolta' con event listener
+difficultySelectorElement.addEventListener('change', (event) => {
+  squareSideLength = difficultySelectorElement.value;
+  containerElement.innerHTML = '';
+  containerElement.classList.remove('difficulty-10', 'difficulty-9', 'difficulty-7')
+})
+
+
+//dicahiaro il bottone di generazione della griglia
+const playButton = document.querySelector('.start');
+
+//aggiongo l'event listener al bottone
+
+/* playButton.addEventListener('click', generateGrid()); */
+
+playButton.addEventListener('click', function() {
+  console.log(`Ho cliccato il bottone con difficolta' ${squareSideLength}`)
+  for (let i = 0; i < Math.pow(squareSideLength, 2); i++) {
+      const num = i + 1;
+      containerElement.classList.add(`difficulty-${squareSideLength}`)
+
+      const cellElement = document.createElement('div');
+      cellElement.classList.add('cell')
+      cellElement.innerHTML = num
+
+      containerElement.append(cellElement)
+    }
+  }
+);
+
+//Funzione invocata dall'event listener per generare il tutto
+
+/* function generateGrid() {
+  console.log(`Ho cliccato il bottone con difficolta' ${squareSideLength}`)
+  for (let i = 0; i < Math.pow(squareSideLength, 2); i++) {
+      const num = i + 1;
+
+      const cellElement = document.createElement('div');
+      cellElement.classList.add('cell')
+      cellElement.innerHTML = num
+
+      containerElement.append(cellElement)
+    }
+  }
+} */
