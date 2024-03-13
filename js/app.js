@@ -29,10 +29,15 @@ playButton.addEventListener('click', function() {
       containerElement.classList.add(`difficulty-${squareSideLength}`)
 
       const cellElement = document.createElement('div');
-      cellElement.classList.add('cell')
+      cellElement.classList.add('cell');
       cellElement.innerHTML = num
 
-      containerElement.append(cellElement)
+      containerElement.append(cellElement);
+
+      cellElement.addEventListener('click', function(){
+        this.classList.toggle('bg-secondary')
+        console.log(`Hai cliccato la casella ${num}`)
+      });
     }
   }
 );
