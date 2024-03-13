@@ -18,13 +18,15 @@
     <section class="my-5">
       <div class="container">
         <div class="row justify-content-center flex-column align-items-center">
-          <button class="col-2 start btn btn-primary">Giochiamo!</button>
-          <select name="difficulty" id="difficulty" class="mt-3 col-2">
-            <option value="0" selected>Seleziona la difficolta'</option>
-            <option value="10">(1) Difficile</option>
-            <option value="9">(2) Normale</option>
-            <option value="7">(3) Facile</option>
-          </select>
+          <form action="" id="game" class="row justify-content-center flex-column align-items-center">
+            <button class="col-2 start btn btn-primary" type="submit">Giochiamo!</button>
+            <select required name="difficulty" id="difficulty" class="mt-3 col-2">
+              <option value="" selected disabled>Seleziona la difficolta'</option>
+              <option value="10">(1) Difficile</option>
+              <option value="9">(2) Normale</option>
+              <option value="7">(3) Facile</option>
+            </select>
+          </form>
         </div>
       </div>
     </section>
