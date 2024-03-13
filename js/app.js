@@ -10,8 +10,6 @@ const difficultySelectorElement = document.getElementById('difficulty');
 //faccio si' che la lunghezza della griglia sia uguale a quella assegnata alla difficolta' con event listener
 difficultySelectorElement.addEventListener('change', (event) => {
   squareSideLength = difficultySelectorElement.value;
-  containerElement.innerHTML = '';
-  containerElement.classList.remove('difficulty-10', 'difficulty-9', 'difficulty-7')
 })
 
 
@@ -24,6 +22,8 @@ const playButton = document.querySelector('.start');
 
 playButton.addEventListener('click', function() {
   console.log(`Ho cliccato il bottone con difficolta' ${squareSideLength}`)
+  containerElement.classList.remove('difficulty-10', 'difficulty-9', 'difficulty-7')
+  containerElement.innerHTML = '';
   for (let i = 0; i < Math.pow(squareSideLength, 2); i++) {
       const num = i + 1;
       containerElement.classList.add(`difficulty-${squareSideLength}`)
@@ -41,8 +41,11 @@ playButton.addEventListener('click', function() {
 
 /* function generateGrid() {
   console.log(`Ho cliccato il bottone con difficolta' ${squareSideLength}`)
+  containerElement.classList.remove('difficulty-10', 'difficulty-9', 'difficulty-7')
+  containerElement.innerHTML = '';
   for (let i = 0; i < Math.pow(squareSideLength, 2); i++) {
       const num = i + 1;
+      containerElement.classList.add(`difficulty-${squareSideLength}`)
 
       const cellElement = document.createElement('div');
       cellElement.classList.add('cell')
